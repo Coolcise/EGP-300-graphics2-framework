@@ -385,7 +385,7 @@ void renderGameState()
 		//	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 			// draw 3D primitives with immediate mode (terrible)
-			egpDrawSphere8x6Immediate(viewProjMat.m, 0, 1.0f, 0.0f, 0.0f);
+		//	egpDrawSphere8x6Immediate(viewProjMat.m, 0, 1.0f, 0.0f, 0.0f);
 		//	egpDrawSphere32x24Immediate(viewProjMat.m, 0, 0.0f, 1.0f, 0.0f);
 		//	egpDrawCubeImmediate(viewProjMat.m, 0, 1, 0.0f, 0.0f, 1.0f);
 		//	egpDrawWireCubeImmediate(viewProjMat.m, 0, 1, 1.0f, 0.5f, 0.0f);
@@ -404,8 +404,8 @@ void renderGameState()
 	// ****
 	// TEST YOUR SHAPES
 	{
-		egpfwDrawColoredTriangleImmediate(viewProjMat.m, 0);
-	//	egpfwDrawColoredUnitQuadImmediate(viewProjMat.m, 0);
+	//	egpfwDrawColoredTriangleImmediate(viewProjMat.m, 0);
+		egpfwDrawColoredUnitQuadImmediate(viewProjMat.m, 0);
 	//	egpfwDrawTexturedUnitQuadImmediate(viewProjMat.m, 0);
 	}
 
