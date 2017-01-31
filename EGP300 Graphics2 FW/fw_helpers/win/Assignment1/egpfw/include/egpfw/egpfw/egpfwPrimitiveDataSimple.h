@@ -50,17 +50,6 @@ extern "C"
 //-----------------------------------------------------------------------------
 
 
-// get data for disc that can be colored or textured
-// data should be arranged as TRIANGLE STRIP
-// positions and colors have 3 elements each, texture coordinates have 2
-	const float *egpfwGetDiscPositions();
-	const float *egpfwGetDiscColors();
-	const float *egpfwGetDiscTexcoords();
-	unsigned int egpfwGetDiscVertexCount();
-
-
-	//-----------------------------------------------------------------------------
-
 #ifdef __cplusplus
 }
 #endif	// __cplusplus

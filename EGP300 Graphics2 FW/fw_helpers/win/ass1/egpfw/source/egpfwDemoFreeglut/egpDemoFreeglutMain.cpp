@@ -87,14 +87,14 @@ cbtk::cbmath::vec4 cameraPosWorld(0.0f, 0.0f, cameraDistance, 1.0f), deltaCamPos
 // test vertex buffers for built-in primitive data
 enum VAOIndex
 {
-	sphere8x6VAO, sphere32x24VAO, cubeVAO, cubeWireVAO, cubeIndexedVAO, cubeWireIndexedVAO, quadVAO, discVAO,
+	sphere8x6VAO, sphere32x24VAO, cubeVAO, cubeWireVAO, cubeIndexedVAO, cubeWireIndexedVAO, 
 
 //-----------------------------
 	vaoCount
 };
 enum VBOIndex
 {
-	sphere8x6VBO, sphere32x24VBO, cubeVBO, cubeWireVBO, cubeIndexedVBO, cubeWireIndexedVBO, quadVBO, discVBO,
+	sphere8x6VBO, sphere32x24VBO, cubeVBO, cubeWireVBO, cubeIndexedVBO, cubeWireIndexedVBO, 
 
 //-----------------------------
 	vboCount
@@ -170,20 +170,6 @@ void setupGeometry()
 	// wire cube
 	attribs[0].data = egpGetWireCubePositions();
 	vao[cubeWireVAO] = egpCreateVAOInterleaved(PRIM_LINES, attribs, 1, egpGetWireCubeVertexCount(), (vbo + cubeWireVBO), 0);
-
-	// quad
-	attribs[0].data = egpfwGetUnitQuadPositions();
-	attribs[1].data = 0;
-	attribs[2].data = egpfwGetUnitQuadColors();
-	attribs[3].data = egpfwGetUnitQuadTexcoords();
-	vao[quadVAO] = egpCreateVAOInterleaved(PRIM_TRIANGLE_STRIP, attribs, 4, egpfwGetUnitQuadVertexCount(), (vbo + quadVBO), 0);
-
-	// quad
-	attribs[0].data = egpfwGetDiscPositions();
-	attribs[1].data = 0;
-	attribs[2].data = egpfwGetDiscColors();
-	attribs[3].data = egpfwGetDiscTexcoords();
-	vao[discVAO] = egpCreateVAOInterleavedIndexed(PRIM_TRIANGLES, attribs, 4, egpfwGetDiscVertexCount(), (vbo + discVBO), INDEX_UINT, );
 
 	// indexed cube
 	attribs[0].data = egpGetCubeIndexedPositions();
@@ -409,11 +395,9 @@ void renderGameState()
 		//	egpActivateVAO(vao + sphere32x24VAO);
 		//	egpActivateVAO(vao + cubeVAO);
 		//	egpActivateVAO(vao + cubeWireVAO);
-		// 	egpActivateVAO(vao + cubeIndexedVAO);
+		//	egpActivateVAO(vao + cubeIndexedVAO);
 		//	egpActivateVAO(vao + cubeWireIndexedVAO);
-		//	egpActivateVAO(vao + quadVAO);
-			egpActivateVAO(vao + discVAO);
-			egpDrawActiveVAO();
+		//	egpDrawActiveVAO();
 		}
 	}
 
@@ -421,7 +405,7 @@ void renderGameState()
 	// TEST YOUR SHAPES
 	{
 	//	egpfwDrawColoredTriangleImmediate(viewProjMat.m, 0);
-	//	egpfwDrawColoredUnitQuadImmediate(viewProjMat.m, 0);
+		egpfwDrawColoredUnitQuadImmediate(viewProjMat.m, 0);
 	//	egpfwDrawTexturedUnitQuadImmediate(viewProjMat.m, 0);
 	}
 
